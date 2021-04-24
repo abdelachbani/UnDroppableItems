@@ -2,11 +2,14 @@ package theabdel572.UDI;
 
 import java.io.File;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import theabdel572.UDI.commands.UDIMainCmds;
+import theabdel572.UDI.listeners.onPlayerDropItem;
 
 public class UDI extends JavaPlugin{
 	private final PluginDescriptionFile pdffile = getDescription();
@@ -27,6 +30,10 @@ public class UDI extends JavaPlugin{
 	}
 	public void registerCommands() {
 		this.getCommand("udi").setExecutor(new UDIMainCmds(this));
+	}
+	public void registerEvents() {
+		PluginManager pm = Bukkit.getServer().getPluginManager();
+		pm.registerEvents(new onPlayerDropItem(this), this);
 	}
 	public String getUDIVersion() {
 		return this.version;
