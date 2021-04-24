@@ -1,2 +1,6 @@
 NoPermission: "&cYou dont have permissions to execute this command!"
+Cannot-Drop: "&cYou can't drop this item!"
 Items:
+Memory:
+  NamesList:
+  
