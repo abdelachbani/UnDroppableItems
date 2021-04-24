@@ -9,6 +9,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import theabdel572.UDI.commands.UDIMainCmds;
+import theabdel572.UDI.listeners.onPlayerDeath;
 import theabdel572.UDI.listeners.onPlayerDropItem;
 
 public class UDI extends JavaPlugin{
@@ -19,6 +20,7 @@ public class UDI extends JavaPlugin{
 	public void onEnable() {
 		registerConfig();
 		registerCommands();
+		registerEvents();
 	}
 	public void registerConfig() {
 		File config = new File (this.getDataFolder(),("config.yml"));
@@ -34,6 +36,7 @@ public class UDI extends JavaPlugin{
 	public void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new onPlayerDropItem(this), this);
+		pm.registerEvents(new onPlayerDeath(this), this);
 	}
 	public String getUDIVersion() {
 		return this.version;
