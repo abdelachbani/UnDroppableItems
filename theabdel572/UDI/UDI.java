@@ -12,35 +12,41 @@ import theabdel572.UDI.commands.UDIMainCmds;
 import theabdel572.UDI.listeners.onPlayerDeath;
 import theabdel572.UDI.listeners.onPlayerDropItem;
 
-public class UDI extends JavaPlugin{
+public class UDI extends JavaPlugin {
 	private final PluginDescriptionFile pdffile = getDescription();
-	private final String version = ChatColor.RED+pdffile.getVersion();
+	private final String version = ChatColor.RED + pdffile.getVersion();
 	private final String name = ChatColor.translateAlternateColorCodes('&', "&6[&bUnDroppableItems&6] ");
 	protected String configPath;
+
 	public void onEnable() {
 		registerConfig();
 		registerCommands();
 		registerEvents();
 	}
+
 	public void registerConfig() {
-		File config = new File (this.getDataFolder(),("config.yml"));
+		File config = new File(this.getDataFolder(), ("config.yml"));
 		configPath = config.getPath();
-		if(!config.exists()) {
+		if (!config.exists()) {
 			this.getConfig().options().copyDefaults(true);
 			saveConfig();
+		}
 	}
-	}
+
 	public void registerCommands() {
 		this.getCommand("udi").setExecutor(new UDIMainCmds(this));
 	}
+
 	public void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new onPlayerDropItem(this), this);
 		pm.registerEvents(new onPlayerDeath(this), this);
 	}
+
 	public String getUDIVersion() {
 		return this.version;
 	}
+
 	public String getUDIName() {
 		return this.name;
 	}
