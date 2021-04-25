@@ -1,3 +1,3 @@
-NoPermission: "&cYou dont have permissions to execute this command!"
-Cannot-Drop: "&cYou can't drop this item!"
+NoPermission: "&6[&bUnDroppableItems&6] &cYou dont have permissions to execute this command!"
+Cannot-Drop: "&6[&bUnDroppableItems&6] &cYou can't drop this item!"
 Items:
