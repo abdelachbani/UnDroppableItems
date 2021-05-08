@@ -28,16 +28,10 @@ public class onPlayerDropItem implements Listener {
 			ItemStack item = e.getItemDrop().getItemStack();
 			ItemMeta meta = item.getItemMeta();
 			if (config.getStringList("Items." + item.getType().toString() + "." + meta.getDisplayName() + ".lore")
-					.equals(meta.getLore())) {
-				e.setCancelled(true);
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("Cannot-Drop")));
-			} else if (config.contains("Items." + item.getType().toString() + "." + meta.getDisplayName() + ".name")) {
-				e.setCancelled(true);
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("Cannot-Drop")));
-			} else if (config.getStringList("Items." + item.getType().toString() + ".lore").equals(meta.getLore())) {
-				e.setCancelled(true);
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("Cannot-Drop")));
-			} else if (config.getBoolean("Items." + item.getType().toString() + ".undroppable") == true) {
+					.equals(meta.getLore())
+					|| config.contains("Items." + item.getType().toString() + "." + meta.getDisplayName() + ".name")
+					|| config.getStringList("Items." + item.getType().toString() + ".lore").equals(meta.getLore())
+					|| config.getBoolean("Items." + item.getType().toString() + ".undroppable") == true) {
 				e.setCancelled(true);
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("Cannot-Drop")));
 			} else {
