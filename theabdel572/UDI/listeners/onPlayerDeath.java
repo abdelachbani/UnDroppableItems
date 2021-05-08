@@ -13,6 +13,7 @@ import theabdel572.UDI.UDI;
 
 public class onPlayerDeath implements Listener {
 	private final UDI plugin;
+	private ItemStack UDItem;
 
 	public onPlayerDeath(UDI plugin) {
 		this.plugin = plugin;
@@ -25,25 +26,29 @@ public class onPlayerDeath implements Listener {
 			return;
 		} else {
 			List<ItemStack> drops = e.getDrops();
-			FileConfiguration config = plugin.getConfig();
-			for (int i = 0; i < drops.size(); i++) {
-				ItemStack item = drops.get(i);
-				String material = item.getType().toString();
-				String name = item.getItemMeta().getDisplayName();
-				List<String> lore = item.getItemMeta().getLore();
-
-				if (config.getStringList("Items." + material + "." + name + ".lore").equals(lore)) {
-					drops.remove(item);
-				} else if (config.contains("Items." + material + "." + name + ".name")) {
-					drops.remove(item);
-				} else if (config.getStringList("Items." + material + ".lore").equals(lore)) {
-					drops.remove(item);
-				} else if (config.getBoolean("Items." + material + ".undroppable") == true) {
-					drops.remove(item);
-				} else {
-					return;
-				}
+			while (isUDItem(e)) {
+				drops.remove(UDItem);
 			}
 		}
+	}
+
+	public boolean isUDItem(PlayerDeathEvent e) {
+		List<ItemStack> drops = e.getDrops();
+		FileConfiguration config = plugin.getConfig();
+		for (int i = 0; i < drops.size(); i++) {
+			ItemStack item = drops.get(i);
+			String material = item.getType().toString();
+			String name = item.getItemMeta().getDisplayName();
+			List<String> lore = item.getItemMeta().getLore();
+
+			if (config.getStringList("Items." + material + "." + name + ".lore").equals(lore)
+					|| config.contains("Items." + material + "." + name + ".name")
+					|| config.getStringList("Items." + material + ".lore").equals(lore)
+					|| config.getBoolean("Items." + material + ".undroppable") == true) {
+				UDItem = drops.get(i);
+				return true;
+			}
+		}
+		return false;
 	}
 }
