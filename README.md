@@ -1,0 +1,2 @@
+# UnDroppableItems
+A simple plugin that will allow you to make the items you want <undroppables> for the players! When you add an item to the list of items that cannot be dropped, players will no longer be able to drop the item on the ground, nor will items from that list fall to the ground when a player dies with one of them. There is also a permission that allows players to be excluded, so that all players with this permission will be able to drop the items on the ground and will also drop them at the time of death.
