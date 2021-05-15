@@ -31,7 +31,8 @@ public class UDIMainCmds implements CommandExecutor {
 				if (player.hasPermission("udi.*")) {
 
 					if (args[0].equalsIgnoreCase("additem")) {
-						ItemStack item = player.getInventory().getItemInMainHand();
+						@SuppressWarnings("deprecation")
+						ItemStack item = player.getInventory().getItemInHand();
 
 						if (item != null && item.getType() != Material.AIR) {
 							ItemMeta meta = item.getItemMeta();
@@ -68,7 +69,8 @@ public class UDIMainCmds implements CommandExecutor {
 									plugin.getUDIName() + ChatColor.RED + "You need to have a item in your hand!");
 						}
 					} else if (args[0].equalsIgnoreCase("removeitem")) {
-						ItemStack item = player.getInventory().getItemInMainHand();
+						@SuppressWarnings("deprecation")
+						ItemStack item = player.getInventory().getItemInHand();
 
 						if (item != null && item.getType() != Material.AIR) {
 							ItemMeta meta = item.getItemMeta();
