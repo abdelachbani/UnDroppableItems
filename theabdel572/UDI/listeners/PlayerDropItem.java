@@ -15,6 +15,7 @@ import theabdel572.UDI.UDI;
 public class PlayerDropItem implements Listener {
 	private final UDI plugin;
 
+	// Constructor of the class (UDI plugin required to call it).
 	public PlayerDropItem(UDI plugin) {
 		this.plugin = plugin;
 	}

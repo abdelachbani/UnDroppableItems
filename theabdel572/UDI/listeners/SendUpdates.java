@@ -11,6 +11,7 @@ import theabdel572.UDI.UDI;
 // Class to send a message with the newest plugin version to players that have permission.
 public class SendUpdates implements Listener{
 	private UDI plugin;
+	// Constructor of the class (UDI plugin required to call it).
 	public SendUpdates(UDI plugin) {
 		this.plugin = plugin;
 	}

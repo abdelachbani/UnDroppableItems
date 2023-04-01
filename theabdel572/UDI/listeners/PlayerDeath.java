@@ -16,6 +16,7 @@ public class PlayerDeath implements Listener {
 	private final UDI plugin;
 	private ItemStack UDItem;
 
+	// Constructor of the class (UDI plugin required to call it).
 	public PlayerDeath(UDI plugin) {
 		this.plugin = plugin;
 	}

@@ -16,6 +16,7 @@ import theabdel572.UDI.UDI;
 public class UDIMainCmds implements CommandExecutor {
 	private final UDI plugin;
 
+	// Constructor of the class (UDI plugin required to call it).
 	public UDIMainCmds(UDI plugin) {
 		this.plugin = plugin;
 	}
