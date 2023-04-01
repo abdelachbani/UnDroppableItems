@@ -14,8 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import theabdel572.UDI.commands.UDIMainCmds;
 import theabdel572.UDI.listeners.SendUpdates;
-import theabdel572.UDI.listeners.onPlayerDeath;
-import theabdel572.UDI.listeners.onPlayerDropItem;
+import theabdel572.UDI.listeners.PlayerDeath;
+import theabdel572.UDI.listeners.PlayerDropItem;
 
 public class UDI extends JavaPlugin {
 	private final PluginDescriptionFile pdffile = getDescription();
@@ -46,8 +46,8 @@ public class UDI extends JavaPlugin {
 
 	public void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
-		pm.registerEvents(new onPlayerDropItem(this), this);
-		pm.registerEvents(new onPlayerDeath(this), this);
+		pm.registerEvents(new PlayerDropItem(this), this);
+		pm.registerEvents(new PlayerDeath(this), this);
 		pm.registerEvents(new SendUpdates(this), this);
 	}
 

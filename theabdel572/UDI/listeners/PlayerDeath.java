@@ -11,11 +11,11 @@ import org.bukkit.inventory.ItemStack;
 
 import theabdel572.UDI.UDI;
 
-public class onPlayerDeath implements Listener {
+public class PlayerDeath implements Listener {
 	private final UDI plugin;
 	private ItemStack UDItem;
 
-	public onPlayerDeath(UDI plugin) {
+	public PlayerDeath(UDI plugin) {
 		this.plugin = plugin;
 	}
 

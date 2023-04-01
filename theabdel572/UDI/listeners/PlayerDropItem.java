@@ -11,10 +11,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.md_5.bungee.api.ChatColor;
 import theabdel572.UDI.UDI;
 
-public class onPlayerDropItem implements Listener {
+public class PlayerDropItem implements Listener {
 	private final UDI plugin;
 
-	public onPlayerDropItem(UDI plugin) {
+	public PlayerDropItem(UDI plugin) {
 		this.plugin = plugin;
 	}
 
