@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 import theabdel572.UDI.UDI;
 
+// Class to manage player death events.
 public class PlayerDeath implements Listener {
 	private final UDI plugin;
 	private ItemStack UDItem;
@@ -20,6 +21,7 @@ public class PlayerDeath implements Listener {
 	}
 
 	@EventHandler
+	// Method to handle player death events.
 	public void onDeath(PlayerDeathEvent e) {
 		Player player = e.getEntity();
 		if (player.hasPermission("udi.exclude")) {
@@ -31,7 +33,7 @@ public class PlayerDeath implements Listener {
 			}
 		}
 	}
-
+	// Method to check if an item is UnDroppable.
 	public boolean isUDItem(PlayerDeathEvent e) {
 		List<ItemStack> drops = e.getDrops();
 		FileConfiguration config = plugin.getConfig();

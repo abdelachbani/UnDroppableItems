@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import theabdel572.UDI.UDI;
 
+// Class to manage the main plugin command.
 public class UDIMainCmds implements CommandExecutor {
 	private final UDI plugin;
 
@@ -19,6 +20,7 @@ public class UDIMainCmds implements CommandExecutor {
 		this.plugin = plugin;
 	}
 
+	// Method to handle the /udi command.
 	public boolean onCommand(CommandSender sender, Command cmd, String idk, String[] args) {
 		FileConfiguration config = plugin.getConfig();
 		if (!(sender instanceof Player)) {
@@ -132,6 +134,7 @@ public class UDIMainCmds implements CommandExecutor {
 		return false;
 	}
 
+	// Method to send the help message of the plugin.
 	public void sendUDIHelp(Player player) {
 		player.sendMessage(plugin.getUDIName()
 				+ ChatColor.translateAlternateColorCodes('&', plugin.getUDIName() + "&aby &atheabdel572."));

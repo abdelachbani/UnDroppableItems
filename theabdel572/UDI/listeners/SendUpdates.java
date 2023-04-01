@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import theabdel572.UDI.UDI;
 
+// Class to send a message with the newest plugin version to players that have permission.
 public class SendUpdates implements Listener{
 	private UDI plugin;
 	public SendUpdates(UDI plugin) {
@@ -15,6 +16,7 @@ public class SendUpdates implements Listener{
 	}
 	
 	@EventHandler
+	// Method to handle player joining events.
 	public void onJoin(PlayerJoinEvent e) {
 		Player player = e.getPlayer();
 		

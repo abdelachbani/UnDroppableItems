@@ -17,6 +17,7 @@ import theabdel572.UDI.listeners.SendUpdates;
 import theabdel572.UDI.listeners.PlayerDeath;
 import theabdel572.UDI.listeners.PlayerDropItem;
 
+// Main plugin class.
 public class UDI extends JavaPlugin {
 	private final PluginDescriptionFile pdffile = getDescription();
 	private final String version = ChatColor.RED + pdffile.getVersion();
@@ -24,6 +25,7 @@ public class UDI extends JavaPlugin {
 	protected String configPath;
 	private String latestversion;
 
+	// Method to execute when the plugin enables.
 	public void onEnable() {
 		registerConfig();
 		registerCommands();
@@ -31,6 +33,7 @@ public class UDI extends JavaPlugin {
 		checkUpdates();
 	}
 
+	// Method to check the config.yml file and if it doesn't exist, create it.
 	public void registerConfig() {
 		File config = new File(this.getDataFolder(), ("config.yml"));
 		configPath = config.getPath();
@@ -40,10 +43,12 @@ public class UDI extends JavaPlugin {
 		}
 	}
 
+	// Method to register the plugin commands.
 	public void registerCommands() {
 		this.getCommand("udi").setExecutor(new UDIMainCmds(this));
 	}
 
+	// Method to register the plugin listeners.
 	public void registerEvents() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(new PlayerDropItem(this), this);
@@ -63,6 +68,7 @@ public class UDI extends JavaPlugin {
 		return this.name;
 	}
 	
+	// Method to check if the plugin is up-to-date and send a message in console if not.
 	public void checkUpdates(){		  
 		  try {
 			  HttpURLConnection con = (HttpURLConnection) new URL(

@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.md_5.bungee.api.ChatColor;
 import theabdel572.UDI.UDI;
 
+// Class to manage player drop item events
 public class PlayerDropItem implements Listener {
 	private final UDI plugin;
 
@@ -19,6 +20,7 @@ public class PlayerDropItem implements Listener {
 	}
 
 	@EventHandler
+	// Method to handle player dropping item events.
 	public void onDropItem(PlayerDropItemEvent e) {
 		Player player = e.getPlayer();
 		if (player.hasPermission("udi.exclude")) {
