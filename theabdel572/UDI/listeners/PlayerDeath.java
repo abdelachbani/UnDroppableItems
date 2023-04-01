@@ -44,7 +44,7 @@ public class PlayerDeath implements Listener {
 			if (config.getStringList("Items." + material + "." + name + ".lore").equals(lore)
 					|| config.contains("Items." + material + "." + name + ".name")
 					|| config.getStringList("Items." + material + ".lore").equals(lore)
-					|| config.getBoolean("Items." + material + ".undroppable") == true) {
+					|| config.getBoolean("Items." + material + ".undroppable")) {
 				UDItem = drops.get(i);
 				return true;
 			}
