@@ -39,10 +39,17 @@ public class PlayerDropItem implements Listener {
               .getStringList("Items." + item.getType().toString() + ".lore")
               .equals(meta.getLore())
           || config.getBoolean("Items." + item.getType().toString() + ".undroppable")) {
+    	  
         e.setCancelled(true);
+        
+        if(config.getString("Cannot-Drop").isBlank()) {
+        	return;
+        }
+        
         player.sendMessage(
             ChatColor.translateAlternateColorCodes('&', config.getString("Cannot-Drop")));
       } else {
+    	  
         return;
       }
     }
